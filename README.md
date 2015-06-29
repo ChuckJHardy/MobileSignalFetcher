@@ -19,10 +19,12 @@ And then execute:
 ## Configuration
 
     MobileSignalFetcher.configure do |config|
+      config.api_key = '123'
       config.verbose = true
     end
 
 * `domain` sets the base uri for Kimonolabs `http://api.opensignal.com/v2/`
+* `api_key` sets the OpenSignal API Key `nil`
 * `verbose` sets the logger level `false`
 
 ## Usage
@@ -33,6 +35,8 @@ Find Exchange Rate:
     # => #<MobileSignalFetcher:0x007f985c021f10>
 
 ## Testing
+
+Ensure `OPENSIGNAL_API_KEY` environment variable is set when recording VCR cassettes.
 
     # Includes Rubocop
     $ bin/rspec

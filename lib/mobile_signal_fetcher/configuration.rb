@@ -12,10 +12,11 @@ class MobileSignalFetcher
     private
 
     class Configuration
-      attr_accessor :domain, :verbose
+      attr_accessor :domain, :api_key, :verbose
 
       def initialize
         self.domain = 'http://api.opensignal.com/v2/'
+        self.api_key = nil
         self.verbose = false
       end
     end

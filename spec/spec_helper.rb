@@ -4,6 +4,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'mobile_signal_fetcher'
 
 MobileSignalFetcher.configure do |config|
+  config.api_key = ENV['OPENSIGNAL_API_KEY']
   config.verbose = false
 end
 

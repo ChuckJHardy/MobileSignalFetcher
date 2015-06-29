@@ -20,6 +20,21 @@ describe MobileSignalFetcher::Configure do
     end
   end
 
+  describe '#api_key' do
+    subject { instance.configuration.api_key }
+
+    let(:new_api_key) { '123' }
+
+    it 'returns a default api key' do
+      expect(subject).to eq(nil)
+    end
+
+    it 'returns altered api key' do
+      instance.configure { |config| config.api_key = new_api_key }
+      expect(subject).to eq(new_api_key)
+    end
+  end
+
   describe '#verbose' do
     subject { instance.configuration.verbose }
 
