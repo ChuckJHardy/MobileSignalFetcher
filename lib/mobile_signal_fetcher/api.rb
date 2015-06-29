@@ -2,9 +2,9 @@ require 'faraday'
 require 'faraday_middleware'
 require 'faraday_middleware/multi_json'
 
-class MobileSignalFetcher
-  Invalid = Class.new(StandardError)
+require 'mobile_signal_fetcher/validate'
 
+class MobileSignalFetcher
   class API
     def self.get(*args)
       new.get(*args)
@@ -12,7 +12,7 @@ class MobileSignalFetcher
 
     def get(url:, options: {})
       connection.get(URI.escape(url), options).tap do |response|
-        fail MobileSignalFetcher::Invalid, response.body if response.status != 200
+        Validate.using(response)
       end
     end
 

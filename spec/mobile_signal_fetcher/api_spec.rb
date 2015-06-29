@@ -16,8 +16,9 @@ RSpec.describe MobileSignalFetcher::API do
     end
 
     context 'when valid' do
+      let(:body) { { networkRank: [] } }
       let(:response) do
-        instance_double(Faraday::Response, status: 200, body: 'Body')
+        instance_double(Faraday::Response, status: 200, body: body)
       end
 
       it 'calls off to Faraday' do
@@ -30,14 +31,15 @@ RSpec.describe MobileSignalFetcher::API do
     end
 
     context 'when invalid' do
+      let(:body) { { networkRank: 'No results for this area' } }
       let(:response) do
-        instance_double(Faraday::Response, status: 500, body: 'Oops')
+        instance_double(Faraday::Response, status: 500, body: body)
       end
 
       it 'raises error' do
         allow(connection).to receive(:get) { response }
 
-        expect { subject }.to raise_error(MobileSignalFetcher::Invalid, 'Oops')
+        expect { subject }.to raise_error(MobileSignalFetcher::NoResults)
       end
     end
   end
