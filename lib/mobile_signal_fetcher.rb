@@ -1,6 +1,7 @@
 require 'mobile_signal_fetcher/configuration'
 require 'mobile_signal_fetcher/dto'
 require 'mobile_signal_fetcher/network_stats_dto'
+require 'mobile_signal_fetcher/network_stats'
 
 class MobileSignalFetcher
   extend Configure
@@ -13,13 +14,13 @@ class MobileSignalFetcher
   end
 
   def network_stats
-    # NetworkStats.new(network_stats_data)
+    NetworkStats.new(stats: network_stats_data)
   end
 
   private
 
   def network_stats_data
-    NetworkStatsDTO.new(
+    NetworkStatsDTO.get(
       lat: @lat,
       lng: @lng,
       distance: @distance,
