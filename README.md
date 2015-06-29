@@ -29,8 +29,8 @@ And then execute:
 
 ## Usage
 
-* `distance` Defaults to `20` (40km x 40km bounding box)
-* `network_type` Defaults to `3` (Number indicates network type, 2G, 3G, 4G)
+* `distance` Defaults to `10` (Optional) The distance of the edges of the bounding box, in km. So for example if 20 is specified, then averages are returned for an areas enclosed by the bounding box 10km north, south, east and west of the specified point (i.e. 20km x 20km). By default it's set to 10 km, the maximum value is 10.
+* `network_type` Defaults to `3` (Optional) By default the API returns results for all technologies. If you wish you can restrict to either 2G, 3G or 4G. Allowed values: 2, 3, or 4.
 
 Find Exchange Rate:
 

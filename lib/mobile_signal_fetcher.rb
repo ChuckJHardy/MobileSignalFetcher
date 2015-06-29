@@ -6,7 +6,7 @@ require 'mobile_signal_fetcher/network_stats'
 class MobileSignalFetcher
   extend Configure
 
-  def initialize(lat:, lng:, distance: 20, network_type: 3)
+  def initialize(lat:, lng:, distance: 10, network_type: nil)
     @lat = lat
     @lng = lng
     @distance = distance
