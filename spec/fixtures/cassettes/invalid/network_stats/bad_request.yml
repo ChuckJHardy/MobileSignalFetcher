@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.opensignal.com/v2/networkstats.json?apikey=<OPENSIGNAL_API_KEY>&distance=22&json_format=2&lat=50000&lng=-1.131592
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Server:
+      - Apache/2.2.14 (Ubuntu)
+      X-Powered-By:
+      - PHP/5.3.2-1ubuntu4.28
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '161'
+      Date:
+      - Mon, 29 Jun 2015 17:33:17 GMT
+      X-Varnish:
+      - '414694200'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Cache:
+      - MISS
+      X-Brenvarnishlog:
+      - api-and-translate-dot
+    body:
+      encoding: UTF-8
+      string: '{"status":"400","message":"Latitude must be in the range -90 to 90,
+        longitude must be in the range -180 to 180","more_info":"http:\/\/developers.opensignal.com"}'
+    http_version: 
+  recorded_at: Mon, 29 Jun 2015 17:33:17 GMT
+recorded_with: VCR 2.9.3

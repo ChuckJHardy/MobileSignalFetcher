@@ -31,7 +31,19 @@ RSpec.describe MobileSignalFetcher do
 
       it 'raises error' do
         VCR.use_cassette('invalid/network_stats/no_results') do
-          expect { instance.network_stats }.to raise_error(MobileSignalFetcher::NoResults)
+          expect { instance.network_stats }
+            .to raise_error(MobileSignalFetcher::NoResults)
+        end
+      end
+    end
+
+    context 'with bad request' do
+      let(:lat) { 50000 }
+
+      it 'raises error' do
+        VCR.use_cassette('invalid/network_stats/bad_request') do
+          expect { instance.network_stats }
+            .to raise_error(MobileSignalFetcher::BadRequest)
         end
       end
     end

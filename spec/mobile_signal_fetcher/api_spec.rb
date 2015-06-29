@@ -29,18 +29,5 @@ RSpec.describe MobileSignalFetcher::API do
         subject
       end
     end
-
-    context 'when invalid' do
-      let(:body) { { networkRank: 'No results for this area' } }
-      let(:response) do
-        instance_double(Faraday::Response, status: 500, body: body)
-      end
-
-      it 'raises error' do
-        allow(connection).to receive(:get) { response }
-
-        expect { subject }.to raise_error(MobileSignalFetcher::NoResults)
-      end
-    end
   end
 end
