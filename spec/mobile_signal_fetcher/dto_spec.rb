@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'mobile_signal_fetcher/dto'
 
-describe MobileSignalFetcher::DTO do
+RSpec.describe MobileSignalFetcher::DTO, type: :dto do
   let(:instance) { described_class.new(options: options) }
   let(:options) { {} }
 

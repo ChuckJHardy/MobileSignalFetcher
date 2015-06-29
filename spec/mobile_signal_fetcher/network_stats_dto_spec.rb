@@ -1,13 +1,23 @@
 require 'spec_helper'
-require 'mobile_signal_fetcher/dto'
 
-describe MobileSignalFetcher::NetworkStatsDTO do
+RSpec.describe MobileSignalFetcher::NetworkStatsDTO, type: :dto do
   let(:instance) { described_class.new(options: options) }
-  let(:options) { {} }
+  let(:options) do
+    {
+      lat: 50.7136820,
+      lng: -3.5443600,
+      distance: 20,
+      network_type: 3
+    }
+  end
+
+  before do
+    MobileSignalFetcher.configuration.api_key = '123'
+  end
 
   describe '#endpoint' do
     let(:expected_endpoint) do
-      'networkstats.json'
+      'networkstats.json?lat=50.713682&lng=-3.54436&distance=20&network_type=3&apikey=123'
     end
 
     it 'returns expected url' do

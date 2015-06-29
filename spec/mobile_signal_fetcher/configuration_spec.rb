@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'mobile_signal_fetcher/configuration'
 
-describe MobileSignalFetcher::Configure do
+RSpec.describe MobileSignalFetcher::Configure do
   let(:instance) { Class.new { extend MobileSignalFetcher::Configure } }
 
   describe '#domain' do

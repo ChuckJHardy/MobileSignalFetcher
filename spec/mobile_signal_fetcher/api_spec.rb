@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'mobile_signal_fetcher/api'
 
-describe MobileSignalFetcher::API do
+RSpec.describe MobileSignalFetcher::API do
   describe '.get' do
     subject { described_class.get(url: url, options: options) }
 

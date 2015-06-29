@@ -29,9 +29,17 @@ And then execute:
 
 ## Usage
 
+* `distance` Defaults to `20` (40km x 40km bounding box)
+* `network_type` Defaults to `3` (Number indicates network type, 2G, 3G, 4G)
+
 Find Exchange Rate:
 
-    mobile_signal_fetcher = MobileSignalFetcher.new
+    mobile_signal_fetcher = MobileSignalFetcher.new(
+      lat: 50.7136820,
+      lng: -3.5443600,
+      distance: 1,
+      network_type: 3
+    )
     # => #<MobileSignalFetcher:0x007f985c021f10>
 
 ## Testing
