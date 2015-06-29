@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.opensignal.com/v2/networkstats.json?apikey=<OPENSIGNAL_API_KEY>&distance=1&lat=52.629729&lng=-1.131592&network_type=3
+    uri: http://api.opensignal.com/v2/networkstats.json?apikey=<OPENSIGNAL_API_KEY>&distance=1&json_format=2&lat=52.629729&lng=-1.131592&network_type=3
     body:
       encoding: US-ASCII
       string: ''
@@ -25,11 +25,11 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '873'
+      - '974'
       Date:
-      - Mon, 29 Jun 2015 13:50:41 GMT
+      - Mon, 29 Jun 2015 16:01:04 GMT
       X-Varnish:
-      - '414336173'
+      - '414549229'
       Age:
       - '0'
       Via:
@@ -42,7 +42,7 @@ http_interactions:
       - api-and-translate-dot
     body:
       encoding: UTF-8
-      string: '{"apiVersion":"2","latitude":"52.629729","longitude":"-1.131592","distance":"1","network_type":"3","perMinuteCurrent":0,"perMinuteLimit":10,"perMonthCurrent":2,"perMonthLimit":2000,"networkRank":{"network23420":{"type3G":{"networkName":"3","networkId":"23420","networkType":"3","averageRssiAsu":"12.889693","averageRssiDb":"-87.220613","sampleSizeRSSI":"173570"}},"network23410":{"type3G":{"networkName":"O2","networkId":"23410","networkType":"3","averageRssiAsu":"16.295374","averageRssiDb":"-80.409252","sampleSizeRSSI":"12834"}},"network23430":{"type3G":{"networkName":"EE","networkId":"23430","networkType":"3","averageRssiAsu":"14.581701","averageRssiDb":"-83.836598","sampleSizeRSSI":"6625"}},"network23415":{"type3G":{"networkName":"Vodafone","networkId":"23415","networkType":"3","averageRssiAsu":"14.421520","averageRssiDb":"-84.156959","sampleSizeRSSI":"3923"}}}}'
+      string: '{"apiVersion":"2","latitude":"52.629729","longitude":"-1.131592","distance":"1","network_type":"3","perMinuteCurrent":0,"perMinuteLimit":10,"perMonthCurrent":5,"perMonthLimit":2000,"networkRank":[{"networkName":"3","networkId":"23420","type3G":{"networkName":"3","networkId":"23420","networkType":"3","averageRssiAsu":"12.889693","averageRssiDb":"-87.220613","sampleSizeRSSI":"173570"}},{"networkName":"O2","networkId":"23410","type3G":{"networkName":"O2","networkId":"23410","networkType":"3","averageRssiAsu":"16.295374","averageRssiDb":"-80.409252","sampleSizeRSSI":"12834"}},{"networkName":"EE","networkId":"23430","type3G":{"networkName":"EE","networkId":"23430","networkType":"3","averageRssiAsu":"14.581701","averageRssiDb":"-83.836598","sampleSizeRSSI":"6625"}},{"networkName":"Vodafone","networkId":"23415","type3G":{"networkName":"Vodafone","networkId":"23415","networkType":"3","averageRssiAsu":"14.421520","averageRssiDb":"-84.156959","sampleSizeRSSI":"3923"}}]}'
     http_version: 
-  recorded_at: Mon, 29 Jun 2015 13:50:41 GMT
+  recorded_at: Mon, 29 Jun 2015 16:01:04 GMT
 recorded_with: VCR 2.9.3

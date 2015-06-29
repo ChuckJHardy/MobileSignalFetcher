@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe MobileSignalFetcher::Network::Signal do
+RSpec.describe MobileSignalFetcher::Network::Generation do
   let(:instance) { described_class.new(details: details) }
   let(:details) do
     {
@@ -17,9 +17,16 @@ RSpec.describe MobileSignalFetcher::Network::Signal do
     }
   end
 
-  describe '#db' do
-    it 'returns details rssi db' do
-      expect(instance.db).to eq(details[:averageRsrpDb])
+  describe '#type' do
+    it 'returns generation type' do
+      expect(instance.type).to eq('4')
+    end
+  end
+
+  describe '#signal' do
+    it 'returns Signal object' do
+      expect(instance.signal)
+        .to be_an_instance_of(MobileSignalFetcher::Network::Signal)
     end
   end
 end

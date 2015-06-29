@@ -7,28 +7,28 @@ RSpec.describe MobileSignalFetcher::NetworkStats do
       apiVersion: "2",
       latitude: "50.7136820",
       longitude: "-3.5443600",
-      distance: 10,
-      network_type: "3",
-      perMinuteCurrent: 0,
+      distance: "10",
+      network_type: "",
+      perMinuteCurrent: 1,
       perMinuteLimit: 10,
-      perMonthCurrent: 0,
+      perMonthCurrent: 4,
       perMonthLimit: 2000,
-      networkRank: {
-        network23430: {
-          type3G: {
-            networkName: "EE",
-            networkId: "23430",
-            networkType: "3",
-            averageRssiAsu: "10.494025",
-            averageRssiDb: "-92.011951",
-            sampleSizeRSSI: "320408",
-            downloadSpeed: "3313.9091",
-            uploadSpeed: "1056.1111",
-            pingTime: "136.1364",
-            reliability: "98.285714285716"
-          }
-        },
-        network23420: {
+      networkRank: [
+        {
+          networkName: "3",
+          networkId: "23420",
+          type4G: {
+            networkName: "3",
+            networkId: "23420",
+            networkType: "4",
+            averageRsrpAsu: "34.847529",
+            averageRsrpDb: "-105.152471",
+            sampleSizeRSRP: "383715",
+            downloadSpeed: "11740.2941",
+            uploadSpeed: "8821.8000",
+            pingTime: "59.1111",
+            reliability: "94.7368421052632"
+          },
           type3G: {
             networkName: "3",
             networkId: "23420",
@@ -40,9 +40,17 @@ RSpec.describe MobileSignalFetcher::NetworkStats do
             uploadSpeed: "1521.2250",
             pingTime: "107.1923",
             reliability: "97.7190026954151"
+          },
+          type2G: {
+            networkName: "3",
+            networkId: "23420",
+            networkType: "2",
+            averageRssiAsu: "8.581667",
+            averageRssiDb: "-95.836667",
+            sampleSizeRSSI: "1217"
           }
         }
-      }
+      ]
     }
   end
 

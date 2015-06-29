@@ -1,7 +1,7 @@
 class MobileSignalFetcher
   class NetworkStatsDTO < DTO
     def endpoint
-      "networkstats.json?lat=#{lat}&lng=#{lng}&distance=#{distance}&network_type=#{network_type}&apikey=#{api_key}"
+      "networkstats.json?lat=#{lat}&lng=#{lng}&distance=#{distance}&network_type=#{network_type}&apikey=#{api_key}&json_format=2"
     end
 
     private

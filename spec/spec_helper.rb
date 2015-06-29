@@ -4,7 +4,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'mobile_signal_fetcher'
 
 MobileSignalFetcher.configure do |config|
-  config.api_key = '123'
+  config.api_key = 123
   config.verbose = false
 end
 
@@ -22,5 +22,9 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.syntax = :expect
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:each) do
+    MobileSignalFetcher.configuration.api_key = '123'
   end
 end

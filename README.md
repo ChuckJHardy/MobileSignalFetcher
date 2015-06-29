@@ -40,7 +40,22 @@ Find Exchange Rate:
       distance: 1,
       network_type: 3
     )
-    # => #<MobileSignalFetcher:0x007f985c021f10>
+    # => #<MobileSignalFetcher:0x>
+
+    network_stats = mobile_signal_fetcher.network_stats
+    # => #<MobileSignalFetcher::NetworkStats:0x>
+
+    network_stats.networks
+    # => [#<MobileSignalFetcher::Network:0x>]
+
+    generations = network_stats.networks.first.generations
+    # => #<MobileSignalFetcher::Network::Generation:0x>
+
+    generations.first.type
+    # => 4
+
+    generations.first.signal
+    # => #<MobileSignalFetcher::Network::Signal:0x>
 
 ## Testing
 

@@ -4,6 +4,7 @@ require "bundler/setup"
 require "mobile_signal_fetcher"
 
 MobileSignalFetcher.configure do |config|
+  config.api_key = ENV['OPENSIGNAL_API_KEY']
   config.verbose = true
 end
 

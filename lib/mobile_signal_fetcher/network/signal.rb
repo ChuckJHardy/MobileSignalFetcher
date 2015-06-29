@@ -1,15 +1,11 @@
 class MobileSignalFetcher::Network
   class Signal
-    def initialize(network:)
-      @network = network
+    def initialize(details:)
+      @details = details
     end
 
     def db
-      network.fetch(:averageRssiDb)
+      @details.fetch(:averageRsrpDb)
     end
-
-    protected
-
-    attr_reader :network
   end
 end

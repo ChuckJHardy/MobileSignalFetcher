@@ -13,7 +13,7 @@ RSpec.describe MobileSignalFetcher::NetworkStatsDTO, type: :dto do
 
   describe '#endpoint' do
     let(:expected_endpoint) do
-      'networkstats.json?lat=50.713682&lng=-3.54436&distance=20&network_type=3&apikey=123'
+      'networkstats.json?lat=50.713682&lng=-3.54436&distance=20&network_type=3&apikey=123&json_format=2'
     end
 
     it 'returns expected url' do

@@ -1,25 +1,25 @@
-require 'mobile_signal_fetcher/network/signal'
+require 'mobile_signal_fetcher/network/generation'
 
 class MobileSignalFetcher
   class Network
     def initialize(network:)
-      @network = network.fetch(:type3G)
+      @network = network
     end
 
     def self.to_proc
-      ->(_, network) { new(network: network) }
+      ->(network) { new(network: network) }
     end
 
-    def name
-      network.fetch(:networkName) 
+    def generations
+      [ gen_for(:type2G), gen_for(:type3G), gen_for(:type4G) ].compact
     end
 
-    def signal
-      Signal.new(network: network)
+    private
+
+    def gen_for(type)
+      if details = @network[type]
+        Generation.new(details: details)
+      end
     end
-
-    protected
-
-    attr_reader :network
   end
 end
