@@ -10,9 +10,9 @@ class MobileSignalFetcher::Network
 
     def as_hash
       {
-        network: name,
-        type: type,
-        bars: signal.bars
+        name: name,
+        generation: type,
+        bars: signal.bars.to_s
       }
     end
 

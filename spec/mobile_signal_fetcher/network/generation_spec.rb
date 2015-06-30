@@ -20,9 +20,9 @@ RSpec.describe MobileSignalFetcher::Network::Generation do
   describe '#as_hash' do
     it 'returns hash representation of generation' do
       expect(instance.as_hash).to eq({
-        network: 'EE',
-        type: '4',
-        bars: 0
+        name: 'EE',
+        generation: '4',
+        bars: '0'
       })
     end
   end
