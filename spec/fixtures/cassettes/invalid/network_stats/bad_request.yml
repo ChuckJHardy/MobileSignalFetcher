@@ -27,9 +27,9 @@ http_interactions:
       Content-Length:
       - '161'
       Date:
-      - Mon, 29 Jun 2015 17:33:17 GMT
+      - Tue, 30 Jun 2015 21:24:44 GMT
       X-Varnish:
-      - '414694200'
+      - '416981652'
       Age:
       - '0'
       Via:
@@ -45,5 +45,5 @@ http_interactions:
       string: '{"status":"400","message":"Latitude must be in the range -90 to 90,
         longitude must be in the range -180 to 180","more_info":"http:\/\/developers.opensignal.com"}'
     http_version: 
-  recorded_at: Mon, 29 Jun 2015 17:33:17 GMT
+  recorded_at: Tue, 30 Jun 2015 21:24:44 GMT
 recorded_with: VCR 2.9.3

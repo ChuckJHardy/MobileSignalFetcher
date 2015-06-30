@@ -6,12 +6,26 @@ class MobileSignalFetcher::Network
       @details = details
     end
 
-    def db
-      @details.fetch(:averageRsrpDb)
+    def new_db
+      details[:averageRsrpDb]
+    end
+
+    def old_db
+      details.fetch(:averageRssiDb)
     end
 
     def bars
       Bars.find(db)
+    end
+
+    protected
+
+    attr_reader :details
+
+    private
+
+    def db
+      new_db || old_db
     end
   end
 end

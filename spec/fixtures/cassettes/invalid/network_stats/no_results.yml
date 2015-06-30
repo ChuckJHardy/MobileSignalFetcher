@@ -27,9 +27,9 @@ http_interactions:
       Content-Length:
       - '222'
       Date:
-      - Mon, 29 Jun 2015 17:13:48 GMT
+      - Tue, 30 Jun 2015 21:24:45 GMT
       X-Varnish:
-      - '414663692'
+      - '416981669'
       Age:
       - '0'
       Via:
@@ -42,8 +42,8 @@ http_interactions:
       - api-and-translate-dot
     body:
       encoding: UTF-8
-      string: '{"apiVersion":"2","latitude":"52.629729","longitude":"-1.131592","distance":10,"network_type":"5","perMinuteCurrent":0,"perMinuteLimit":10,"perMonthCurrent":16,"perMonthLimit":2000,"networkRank":"No
+      string: '{"apiVersion":"2","latitude":"52.629729","longitude":"-1.131592","distance":10,"network_type":"5","perMinuteCurrent":1,"perMinuteLimit":10,"perMonthCurrent":26,"perMonthLimit":2000,"networkRank":"No
         results for this area"}'
     http_version: 
-  recorded_at: Mon, 29 Jun 2015 17:13:48 GMT
+  recorded_at: Tue, 30 Jun 2015 21:24:46 GMT
 recorded_with: VCR 2.9.3
