@@ -41,6 +41,14 @@ RSpec.describe MobileSignalFetcher::Network do
     }
   end
 
+  describe '#each' do
+    it 'returns collection of Event objects' do
+      instance.each do |obj|
+        expect(obj).to be_an_instance_of(MobileSignalFetcher::Network::Generation)
+      end
+    end
+  end
+
   describe '#generations' do
     context 'will generations' do
       it 'contains all Generation object' do

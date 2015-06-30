@@ -61,4 +61,12 @@ RSpec.describe MobileSignalFetcher::NetworkStats do
       end
     end
   end
+
+  describe '#each_network_generation' do
+    it 'returns collection of Network::Generation objects' do
+      instance.each_network_generation do |obj|
+        expect(obj).to be_an_instance_of(MobileSignalFetcher::Network::Generation)
+      end
+    end
+  end
 end

@@ -2,12 +2,18 @@ require 'mobile_signal_fetcher/network/generation'
 
 class MobileSignalFetcher
   class Network
+    include Enumerable
+
     def initialize(network:)
       @network = network
     end
 
     def self.to_proc
       ->(network) { new(network: network) }
+    end
+
+    def each(&block)
+      generations.each(&block)
     end
 
     def generations

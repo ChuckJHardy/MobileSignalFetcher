@@ -12,6 +12,10 @@ class MobileSignalFetcher
       networks.each(&block)
     end
 
+    def each_network_generation(&block)
+      each { |network| network.each(&block) }
+    end
+
     def networks
       @stats.fetch(:networkRank).map(&MobileSignalFetcher::Network)
     end
