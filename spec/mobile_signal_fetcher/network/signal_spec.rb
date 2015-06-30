@@ -22,4 +22,10 @@ RSpec.describe MobileSignalFetcher::Network::Signal do
       expect(instance.db).to eq(details[:averageRsrpDb])
     end
   end
+
+  describe '#bars' do
+    it 'returns estimated signal bars' do
+      expect(instance.bars).to eq(0)
+    end
+  end
 end
