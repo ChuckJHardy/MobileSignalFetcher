@@ -51,11 +51,20 @@ Find Exchange Rate:
     generations = network_stats.networks.first.generations
     # => #<MobileSignalFetcher::Network::Generation:0x>
 
+    generations.first.name
+    # => EE
+
     generations.first.type
     # => 4
 
     generations.first.signal
     # => #<MobileSignalFetcher::Network::Signal:0x>
+
+    generations.first.signal.bars
+    # => #<MobileSignalFetcher::Network::Bars:0x>
+
+    generations.first.as_hash
+    # => { ... }
 
 ## Testing
 

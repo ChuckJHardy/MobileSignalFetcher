@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe MobileSignalFetcher::Network::Bars do
-  context '5 Bars' do
+  context '5 Bars', :aggregate_failures do
     [*-61..-50].each do |db|
       it { expect(described_class.find(db.to_s)).to eq(5) }
     end
@@ -12,7 +12,7 @@ RSpec.describe MobileSignalFetcher::Network::Bars do
     end
   end
 
-  context '4 Bars' do
+  context '4 Bars', :aggregate_failures do
     [*-73..-62].each do |db|
       it { expect(described_class.find(db.to_s)).to eq(4) }
     end
@@ -23,7 +23,7 @@ RSpec.describe MobileSignalFetcher::Network::Bars do
     end
   end
 
-  context '3 Bars' do
+  context '3 Bars', :aggregate_failures do
     [*-84..-74].each do |db|
       it { expect(described_class.find(db.to_s)).to eq(3) }
     end
@@ -34,7 +34,7 @@ RSpec.describe MobileSignalFetcher::Network::Bars do
     end
   end
 
-  context '2 Bars' do
+  context '2 Bars', :aggregate_failures do
     [*-95..-85].each do |db|
       it { expect(described_class.find(db.to_s)).to eq(2) }
     end
@@ -45,7 +45,7 @@ RSpec.describe MobileSignalFetcher::Network::Bars do
     end
   end
 
-  context '1 Bars' do
+  context '1 Bars', :aggregate_failures do
     [*-102..-96].each do |db|
       it { expect(described_class.find(db.to_s)).to eq(1) }
     end
@@ -56,7 +56,7 @@ RSpec.describe MobileSignalFetcher::Network::Bars do
     end
   end
 
-  context '0 Bars' do
+  context '0 Bars', :aggregate_failures do
     [*-150..-103].each do |db|
       it { expect(described_class.find(db.to_s)).to eq(0) }
     end

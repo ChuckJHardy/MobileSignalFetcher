@@ -8,6 +8,18 @@ class MobileSignalFetcher::Network
       @details = details
     end
 
+    def as_hash
+      {
+        network: name,
+        type: type,
+        bars: signal.bars
+      }
+    end
+
+    def name
+      details.fetch(:networkName)
+    end
+
     def type
       details.fetch(:networkType)
     end
