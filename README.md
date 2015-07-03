@@ -10,7 +10,7 @@ The [API](http://developer.opensignal.com/) provides a rich data source for info
 
 Add this line to your application's Gemfile:
 
-    gem 'mobile-signal-fetcher', bitbucket: 'InsertCoffee/mobile-signal-fetcher'
+    gem 'mobile-signal-fetcher', github: 'ChuckJHardy/MobileSignalFetcher'
 
 And then execute:
 
@@ -81,7 +81,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/mobile-signal-fetcher/fork )
+1. Fork it ( https://github.com/[my-github-username]/MobileSignalFetcher/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
