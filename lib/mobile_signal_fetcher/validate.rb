@@ -1,26 +1,41 @@
 class MobileSignalFetcher
-  NoResults = Class.new(StandardError)
-  BadRequest = Class.new(StandardError)
-
   class Validate
-    def initialize(response:)
+    def initialize(method:, domain:, url:, options:, response:)
+      @method = method
+      @domain = domain
+      @url = url
+      @options = options
       @response = response
     end
 
-    def self.using(response)
-      new(response: response).validate
+    def self.with(*args)
+      new(*args).validate
     end
 
     def validate
-      fail MobileSignalFetcher::BadRequest if bad_request?
-      fail MobileSignalFetcher::NoResults if no_results?
+      log
+
+      # rubocop:disable Style/RaiseArgs
+      fail BadRequest.new(error_args) if bad_request?
+      fail NoResults.new(error_args) if no_results?
+      # rubocop:enable Style/RaiseArgs
+
+      true
     end
 
-    protected
+    private
 
     attr_reader :response
 
-    private
+    def error_args
+      {
+        domain: @domain,
+        url: @url,
+        options: @options,
+        status: response.status,
+        body: response.body
+      }
+    end
 
     def bad_request?
       response.status == 400
@@ -33,5 +48,12 @@ class MobileSignalFetcher
     def networks
       @response.body.fetch(:networkRank, [])
     end
+
+    def log
+      MobileSignalFetcher.configuration.logger.info(
+        "-> MobileSignalFetcher Response: #{@method.upcase}\n#{error_args}"
+      ) if MobileSignalFetcher.configuration.log
+    end
   end
 end
+
