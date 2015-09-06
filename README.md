@@ -19,13 +19,18 @@ And then execute:
 ## Configuration
 
     MobileSignalFetcher.configure do |config|
-      config.api_key = '123'
+      config.domain = "http://api.opensignal.com/v3/"
+      config.api_key = "pol6BFzsASYw4gQBl02b24nt"
       config.verbose = true
+      config.log = true
+      config.logger = Rails.logger
     end
 
-* `domain` sets the base uri for Kimonolabs `http://api.opensignal.com/v2/`
-* `api_key` sets the OpenSignal API Key `nil`
-* `verbose` sets the logger level `false`
+* `domain` sets the base uri `http://api.opensignal.com/v2/`
+* `api_key` sets the ParseHub API Key `nil`
+* `verbose` should all output be printed to STDOUT `false`
+* `log` should log message be logged `false`
+* `logger` Logger object. `Logger`
 
 ## Usage
 
