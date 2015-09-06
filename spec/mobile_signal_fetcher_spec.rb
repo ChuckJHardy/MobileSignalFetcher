@@ -38,7 +38,7 @@ RSpec.describe MobileSignalFetcher do
     end
 
     context 'with bad request' do
-      let(:lat) { 50000 }
+      let(:lat) { 500_00 }
 
       it 'raises error' do
         VCR.use_cassette('invalid/network_stats/bad_request') do

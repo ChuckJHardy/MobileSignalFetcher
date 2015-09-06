@@ -17,15 +17,14 @@ class MobileSignalFetcher
     end
 
     def generations
-      [ gen_for(:type2G), gen_for(:type3G), gen_for(:type4G) ].compact
+      [gen_for(:type2G), gen_for(:type3G), gen_for(:type4G)].compact
     end
 
     private
 
     def gen_for(type)
-      if details = @network[type]
-        Generation.new(details: details)
-      end
+      details = @network[type]
+      Generation.new(details: details) if details
     end
   end
 end

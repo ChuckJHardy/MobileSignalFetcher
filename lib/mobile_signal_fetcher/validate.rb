@@ -56,4 +56,3 @@ class MobileSignalFetcher
     end
   end
 end
-

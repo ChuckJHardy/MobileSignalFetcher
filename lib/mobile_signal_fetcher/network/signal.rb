@@ -1,31 +1,33 @@
 require 'mobile_signal_fetcher/network/bars'
 
-class MobileSignalFetcher::Network
-  class Signal
-    def initialize(details:)
-      @details = details
-    end
+class MobileSignalFetcher
+  class Network
+    class Signal
+      def initialize(details:)
+        @details = details
+      end
 
-    def new_db
-      details[:averageRsrpDb]
-    end
+      def new_db
+        details[:averageRsrpDb]
+      end
 
-    def old_db
-      details.fetch(:averageRssiDb)
-    end
+      def old_db
+        details.fetch(:averageRssiDb)
+      end
 
-    def bars
-      Bars.find(db)
-    end
+      def bars
+        Bars.find(db)
+      end
 
-    protected
+      protected
 
-    attr_reader :details
+      attr_reader :details
 
-    private
+      private
 
-    def db
-      new_db || old_db
+      def db
+        new_db || old_db
+      end
     end
   end
 end

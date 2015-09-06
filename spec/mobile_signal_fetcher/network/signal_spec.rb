@@ -5,16 +5,16 @@ RSpec.describe MobileSignalFetcher::Network::Signal do
 
   let(:details) do
     {
-      networkName: "3",
-      networkId: "23420",
-      networkType: "4",
-      averageRsrpAsu: "34.847529",
-      averageRsrpDb: "-105.152471",
-      sampleSizeRSRP: "383715",
-      downloadSpeed: "11740.2941",
-      uploadSpeed: "8821.8000",
-      pingTime: "59.1111",
-      reliability: "94.7368421052632"
+      networkName: '3',
+      networkId: '23420',
+      networkType: '4',
+      averageRsrpAsu: '34.847529',
+      averageRsrpDb: '-105.152471',
+      sampleSizeRSRP: '383715',
+      downloadSpeed: '11740.2941',
+      uploadSpeed: '8821.8000',
+      pingTime: '59.1111',
+      reliability: '94.7368421052632'
     }
   end
 
@@ -27,16 +27,16 @@ RSpec.describe MobileSignalFetcher::Network::Signal do
   describe '#old_db' do
     let(:details) do
       {
-        networkName: "3",
-        networkId: "23420",
-        networkType: "4",
-        averageRsrpAsu: "34.847529",
-        averageRssiDb: "-105.152471",
-        sampleSizeRSRP: "383715",
-        downloadSpeed: "11740.2941",
-        uploadSpeed: "8821.8000",
-        pingTime: "59.1111",
-        reliability: "94.7368421052632"
+        networkName: '3',
+        networkId: '23420',
+        networkType: '4',
+        averageRsrpAsu: '34.847529',
+        averageRssiDb: '-105.152471',
+        sampleSizeRSRP: '383715',
+        downloadSpeed: '11740.2941',
+        uploadSpeed: '8821.8000',
+        pingTime: '59.1111',
+        reliability: '94.7368421052632'
       }
     end
 
