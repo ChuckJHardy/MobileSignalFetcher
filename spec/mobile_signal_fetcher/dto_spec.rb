@@ -11,6 +11,9 @@ RSpec.describe MobileSignalFetcher::DTO, type: :dto do
 
     before do
       allow_any_instance_of(described_class).to receive(:endpoint) { endpoint }
+
+      MobileSignalFetcher.configuration.log = true
+      expect(MobileSignalFetcher.configuration.logger).to receive(:info)
     end
 
     it 'calls off to API and returns response body' do
@@ -18,6 +21,10 @@ RSpec.describe MobileSignalFetcher::DTO, type: :dto do
         .with(url: endpoint, options: options) { double(body: {}) }
 
       expect(subject).to eq({})
+    end
+
+    after do
+      MobileSignalFetcher.configuration.log = false
     end
   end
 

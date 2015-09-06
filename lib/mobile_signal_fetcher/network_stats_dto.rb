@@ -25,9 +25,5 @@ class MobileSignalFetcher
     def network_type
       options.fetch(:network_type)
     end
-
-    def api_key
-      MobileSignalFetcher.configuration.api_key
-    end
   end
 end

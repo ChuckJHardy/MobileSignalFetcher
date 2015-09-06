@@ -13,6 +13,7 @@ class MobileSignalFetcher
     end
 
     def response(method)
+      log(method: method)
       API.public_send(method, url: endpoint, options: params).body
     end
 
@@ -22,6 +23,26 @@ class MobileSignalFetcher
 
     def endpoint
       fail NotImplementedError, 'Inheriting class must implement'
+    end
+
+    private
+
+    def domain
+      MobileSignalFetcher.configuration.domain
+    end
+
+    def api_key
+      MobileSignalFetcher.configuration.api_key
+    end
+
+    def log(method:)
+      MobileSignalFetcher.configuration.logger.info([
+        "-> MobileSignalFetcher Request: #{method.upcase}",
+        "domain: #{domain}",
+        "endpoint: #{endpoint}",
+        "api_key: #{api_key}",
+        "params: #{params}"
+      ].join("\n")) if MobileSignalFetcher.configuration.log
     end
   end
 end
