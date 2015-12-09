@@ -12,7 +12,7 @@ describe MobileSignalFetcher::Validate do
   end
 
   let(:response) { double('Faraday::Response', status: status, body: body) }
-  let(:body) { {} }
+  let(:body) { { networkRank: [] } }
   let(:status) { 200 }
 
   before do
@@ -30,6 +30,27 @@ describe MobileSignalFetcher::Validate do
     it 'raises error' do
       expect { validator }.to raise_error(
         MobileSignalFetcher::BadRequest
+      ) do |e|
+        expect(e.message).to eq(
+          domain: 'www',
+          url: 'example.com',
+          options: { query: 1 },
+          response: {
+            status: status,
+            body: body
+          }
+        )
+      end
+    end
+  end
+
+  describe 'When response is empty' do
+    let(:status) { 200 }
+    let(:body) { {} }
+
+    it 'raises error' do
+      expect { validator }.to raise_error(
+        MobileSignalFetcher::EmptyResponse
       ) do |e|
         expect(e.message).to eq(
           domain: 'www',
