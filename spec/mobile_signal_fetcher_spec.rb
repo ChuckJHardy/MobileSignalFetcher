@@ -12,16 +12,24 @@ RSpec.describe MobileSignalFetcher do
   let(:distance) { '22' }
   let(:network_type) { nil }
 
-  before do
-    MobileSignalFetcher.configuration.api_key = ENV['OPENSIGNAL_API_KEY']
-  end
-
   describe '#network_stats' do
     context 'with results' do
       it 'returns NetworkStats object' do
         VCR.use_cassette('valid/network_stats/3g') do
           expect(instance.network_stats)
             .to be_an_instance_of(MobileSignalFetcher::NetworkStats)
+        end
+      end
+    end
+
+    context 'with empty response' do
+      let(:lat) { 51.223078 }
+      let(:lng) { -3.8358 }
+
+      it 'raises error' do
+        VCR.use_cassette('invalid/network_stats/empty_response') do
+          expect { instance.network_stats }
+            .to raise_error(MobileSignalFetcher::EmptyResponse)
         end
       end
     end

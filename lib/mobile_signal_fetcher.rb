@@ -11,6 +11,7 @@ class MobileSignalFetcher
 
   BadRequest = Class.new(Error)
   NoResults = Class.new(Error)
+  EmptyResponse = Class.new(Error)
 
   def initialize(lat:, lng:, distance: 10, network_type: nil)
     @lat = lat

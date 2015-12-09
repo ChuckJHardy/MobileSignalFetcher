@@ -17,6 +17,7 @@ class MobileSignalFetcher
 
       # rubocop:disable Style/RaiseArgs
       fail BadRequest.new(error_args) if bad_request?
+      fail EmptyResponse.new(error_args) if empty_response?
       fail NoResults.new(error_args) if no_results?
       # rubocop:enable Style/RaiseArgs
 
@@ -43,6 +44,10 @@ class MobileSignalFetcher
 
     def no_results?
       networks == 'No results for this area'
+    end
+
+    def empty_response?
+      !@response.body.key?(:networkRank)
     end
 
     def networks
