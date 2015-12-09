@@ -47,7 +47,7 @@ class MobileSignalFetcher
     end
 
     def empty_response?
-      !@response.body.has_key?(:networkRank)
+      !@response.body.key?(:networkRank)
     end
 
     def networks
