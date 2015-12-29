@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe MobileSignalFetcher::Validate do
+  def expected_message(exception, status, body)
+    expect(exception.message).to eq(
+      domain: 'www',
+      url: 'example.com',
+      options: { query: 1 },
+      response: {
+        status: status,
+        body: body
+      }
+    )
+  end
+
   subject(:validator) do
     described_class.with(
       method: :get,
@@ -30,16 +42,30 @@ describe MobileSignalFetcher::Validate do
     it 'raises error' do
       expect { validator }.to raise_error(
         MobileSignalFetcher::BadRequest
-      ) do |e|
-        expect(e.message).to eq(
-          domain: 'www',
-          url: 'example.com',
-          options: { query: 1 },
-          response: {
-            status: status,
-            body: body
-          }
-        )
+      ) { |e| expected_message(e, status, body) }
+    end
+  end
+
+  describe 'When response is invalid' do
+    let(:status) { 200 }
+
+    context 'when body is a nil' do
+      let(:body) { nil }
+
+      it 'raises error' do
+        expect { validator }.to raise_error(
+          MobileSignalFetcher::InvalidResponse
+        ) { |e| expected_message(e, status, body) }
+      end
+    end
+
+    context 'when body is a string' do
+      let(:body) { 'TIMEOUT' }
+
+      it 'raises error' do
+        expect { validator }.to raise_error(
+          MobileSignalFetcher::InvalidResponse
+        ) { |e| expected_message(e, status, body) }
       end
     end
   end
@@ -51,17 +77,7 @@ describe MobileSignalFetcher::Validate do
     it 'raises error' do
       expect { validator }.to raise_error(
         MobileSignalFetcher::EmptyResponse
-      ) do |e|
-        expect(e.message).to eq(
-          domain: 'www',
-          url: 'example.com',
-          options: { query: 1 },
-          response: {
-            status: status,
-            body: body
-          }
-        )
-      end
+      ) { |e| expected_message(e, status, body) }
     end
   end
 
@@ -72,17 +88,7 @@ describe MobileSignalFetcher::Validate do
     it 'raises error' do
       expect { validator }.to raise_error(
         MobileSignalFetcher::NoResults
-      ) do |e|
-        expect(e.message).to eq(
-          domain: 'www',
-          url: 'example.com',
-          options: { query: 1 },
-          response: {
-            status: status,
-            body: body
-          }
-        )
-      end
+      ) { |e| expected_message(e, status, body) }
     end
   end
 
