@@ -1,6 +1,6 @@
 # Mobile Signal Fetcher - [ ![Codeship Status for ChuckJHardy/MobileSignalFetcher](https://codeship.com/projects/29ecbcc0-1059-0133-e383-5a9b1173a114/status?branch=master)](https://codeship.com/projects/92020)
 
-Wrapper for the Police UK API.
+Wrapper for the Opensignal API.
 
 ## Documentation
 
